@@ -150,4 +150,12 @@
         </plugins>
     </build>
 
+
+<developers>
+<developer>
+<name>Francisco Paiva</name>
+<email>francpaivant@gmail.com</email>
+</developer>
+</developers>
+
 </project>
