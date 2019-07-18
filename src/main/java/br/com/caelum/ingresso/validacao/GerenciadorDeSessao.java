@@ -18,7 +18,8 @@ public class GerenciadorDeSessao {
 		if (terminaAmanha(sessaoNova)) {
 			return false;
 		}
-		return sessoesDaSala.stream().noneMatch(sessaoExistente -> horarioIsConflitante(sessaoExistente, sessaoNova));
+		return sessoesDaSala.stream().noneMatch(sessaoExistente //
+		-> horarioIsConflitante(sessaoExistente, sessaoNova));
 	}
 
 	private boolean terminaAmanha(Sessao sessao) {
@@ -37,8 +38,10 @@ public class GerenciadorDeSessao {
 		LocalDateTime terminoSessaoExistente = getTerminoSessaoComDiaDeHoje(sessaoExistente);
 		LocalDateTime inicioSessaoNova = getInicioSessaoComDiaDeHoje(sessaoNova);
 		LocalDateTime terminoSessaoNova = getTerminoSessaoComDiaDeHoje(sessaoNova);
+
 		boolean sessaoNovaTerminaAntesDaExistente = terminoSessaoNova.isBefore(inicioSessaoExistente);
 		boolean sessaoNovaComecaDepoisDaExistente = terminoSessaoExistente.isBefore(inicioSessaoNova);
+
 		if (sessaoNovaTerminaAntesDaExistente || sessaoNovaComecaDepoisDaExistente) {
 			return false;
 		}
@@ -54,4 +57,5 @@ public class GerenciadorDeSessao {
 		LocalDateTime inicioSessaoNova = getInicioSessaoComDiaDeHoje(sessao);
 		return inicioSessaoNova.plus(sessao.getFilme().getDuracao());
 	}
+
 }

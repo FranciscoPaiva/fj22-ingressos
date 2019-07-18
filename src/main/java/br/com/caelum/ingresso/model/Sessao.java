@@ -62,7 +62,11 @@ public class Sessao {
 		this.sala = sala;
 	}
 	
-	
+	public Sessao(Sala sala, Filme filme, LocalTime horario) {
+		this.horario = horario;
+		this.filme = filme;
+		this.sala = sala;
+	}	
 	
 	 /**
      * @deprecated hibernate only
