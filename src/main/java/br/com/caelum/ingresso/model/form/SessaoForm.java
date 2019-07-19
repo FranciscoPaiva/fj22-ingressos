@@ -1,5 +1,7 @@
 package br.com.caelum.ingresso.model.form;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalTime;
 
 import javax.validation.constraints.NotNull;
@@ -13,14 +15,16 @@ import br.com.caelum.ingresso.model.Sala;
 import br.com.caelum.ingresso.model.Sessao;
 
 public class SessaoForm {
-	
+
 	@NotNull
-	private Integer salaId; 
-	
+	private Integer salaId;
+
 	@DateTimeFormat(pattern = "HH:mm")
 	@NotNull
 	private LocalTime horario;
-	
+
+	private BigDecimal preco;
+
 	public Integer getSalaId() {
 		return salaId;
 	}
@@ -33,6 +37,10 @@ public class SessaoForm {
 		return horario;
 	}
 
+	public BigDecimal getPreco() {
+		return preco.setScale(2, RoundingMode.HALF_UP);
+	}
+
 	public void setHorario(LocalTime horario) {
 		this.horario = horario;
 	}
@@ -43,6 +51,10 @@ public class SessaoForm {
 
 	public void setFilmeId(Integer filmeId) {
 		this.filmeId = filmeId;
+	}
+
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
 	}
 
 	@NotNull
