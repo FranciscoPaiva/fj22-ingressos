@@ -40,8 +40,6 @@ public class LugarController {
         return view;
     }
 
-
-
     @PostMapping("/admin/lugar")
     @Transactional
     public ModelAndView salva(@Valid LugarForm lugarDto, BindingResult result) {

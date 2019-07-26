@@ -58,7 +58,9 @@ public class Filme {
 	}
 
 	public BigDecimal getPreco() {
-		return preco.setScale(2,RoundingMode.HALF_UP);
+		if (preco != null) {
+			return preco.setScale(2,RoundingMode.HALF_UP) ;
+		} else return BigDecimal.ZERO;
 	}
 
 	public void setDuracao(long duracao) {

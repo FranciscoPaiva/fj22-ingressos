@@ -57,7 +57,15 @@ public class SalaForm {
         this.lugares = lugares;
     }
 
-    public Sala toSala() {
+    public BigDecimal getPreco() {
+		return preco;
+	}
+
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
+	}
+
+	public Sala toSala() {
         Sala sala = new Sala(this.nome, this.preco);
         sala.setId(this.salaId);
         sala.setLugares(new HashSet<>(this.lugares));
